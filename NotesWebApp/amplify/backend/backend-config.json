@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"notesWebAppResourceName": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
