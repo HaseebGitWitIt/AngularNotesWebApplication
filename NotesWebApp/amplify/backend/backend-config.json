@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"notesWebAppResourceName": {
+		"projectResourceName": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []

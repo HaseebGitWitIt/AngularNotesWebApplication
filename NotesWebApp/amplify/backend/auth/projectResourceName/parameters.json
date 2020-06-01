@@ -1,5 +1,5 @@
 {
-    "resourceNameTruncated": "notesWaad1463f",
+    "resourceNameTruncated": "projecddafc47b",
     "userPoolName": "notes_web_app_user_pool",
     "autoVerifiedAttributes": [
         "email"
@@ -11,7 +11,7 @@
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Notes App Verification Code",
-    "emailVerificationMessage": "Your verification code is {####} - HK",
+    "emailVerificationMessage": "Your verification code is {####}. - HK",
     "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [
@@ -34,11 +34,11 @@
         "email",
         "name"
     ],
-    "userpoolClientLambdaRole": "notesWaad1463f_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "projecddafc47b_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
     "useDefault": "manual",
     "authSelections": "userPoolOnly",
-    "resourceName": "notesWebAppResourceName",
+    "resourceName": "projectResourceName",
     "usernameAttributes": [
         "email"
     ],
