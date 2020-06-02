@@ -1,0 +1,4 @@
+<h1 *ngIf="!this.getUser()">There was an error loggin in!</h1>
+<div *ngIf="this.getUser()">
+  <h1>Welcome to the Notes App {{this.getUser().getName()}}</h1>
+</div>
