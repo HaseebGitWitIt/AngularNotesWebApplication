@@ -5,11 +5,16 @@
 <div class="menu_buttons">
   <button (click)="this.openNewNoteModal()">New Note</button>
 </div>
-<div>
-  <ul class="notes" *ngIf="this.getUser() && this.getUser().getNotes()">
-    <li *ngFor="let note of this.getUser().getNotes()" [class.selected]="note === this.getSelectedNote()"
-      (click)="this.onSelect(note)">
-      {{note.getName()}}
-    </li>
-  </ul>
+<div *ngIf="this.getUser() && this.getUser().getNotes()">
+  <div id="names">
+    <ul class="notes">
+      <li *ngFor="let note of this.getUser().getNotes()" [class.selected]="note === this.getSelectedNote()"
+        (click)="this.onSelect(note)">
+        {{note.getName()}}
+      </li>
+    </ul>
+  </div>
+  <div class="noteText">
+    <textarea *ngIf="this.getSelectedNote()" style="width: 900px; height: 500px; font-size: 16px;"></textarea>
+  </div>
 </div>

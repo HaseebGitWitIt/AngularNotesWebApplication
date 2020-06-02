@@ -3,6 +3,18 @@
   height: 30px;
 }
 
+#names {
+  float: left;
+  height: 500px;
+  width: 240px;
+  overflow: scroll;
+}
+
+.noteText {
+  float: left;
+  margin-top: 8px;
+}
+
 .notes {
   margin: 0 0 2em 0;
   list-style-type: none;

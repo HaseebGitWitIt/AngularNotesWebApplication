@@ -36,7 +36,16 @@ export class NotesComponent implements OnInit {
   }
 
   private createNote(name: string): void {
-    this.user.addNote(new Note("", name));
+    var temp = new Note("", name);
+    this.user.addNote(temp);
+    setTimeout(() => this.selectNote(temp), 500);
+
+  }
+
+  private selectNote(note: Note): void {
+    const scroll = document.getElementById("names");
+    scroll.scrollTop = scroll.scrollHeight;
+    this.selectedNote = note;
   }
 
   private checkIfValidNoteName(name: string): boolean {
@@ -57,7 +66,11 @@ export class NotesComponent implements OnInit {
   }
 
   public onSelect(note: Note): void {
-    this.selectedNote = note;
+    if (this.selectedNote === note) {
+      this.selectedNote = null;
+    } else {
+      this.selectedNote = note;
+    }
   }
 
   public getSelectedNote(): Note {
