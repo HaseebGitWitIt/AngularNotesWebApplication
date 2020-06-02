@@ -4,11 +4,12 @@ export class User {
 
     private name: string;
     private username: string;
-    private notes: Array<Note>;
+    private notes: Note[];
 
     constructor(name: string, username: string) {
         this.name = name;
         this.username = username;
+        this.notes = [];
     }
 
     public getName(): string {
@@ -19,12 +20,12 @@ export class User {
         return this.username;
     }
 
-    public getNotes(): Array<Note> {
+    public getNotes(): Note[] {
         return this.notes;
     }
 
-    public addNote(name: string, note: string): void {
-        this.notes.push(new Note(note, name));
+    public addNote(note: Note): void {
+        this.notes.push(note);
     }
 
 
