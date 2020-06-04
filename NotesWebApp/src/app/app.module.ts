@@ -9,6 +9,9 @@ import { NotesComponent } from './notes/notes.component';
 import { AmplifyService } from 'aws-amplify-angular';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AmplifyUIAngularModule
+    AmplifyUIAngularModule,
+    FormsModule
   ],
   providers: [AmplifyService],
   bootstrap: [AppComponent]

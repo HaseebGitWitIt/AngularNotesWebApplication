@@ -1,0 +1,50 @@
+.menu_buttons {
+  display: flex;
+  height: 30px;
+}
+
+#names {
+  float: left;
+  height: 500px;
+  width: 240px;
+  overflow: scroll;
+}
+
+.noteText {
+  float: left;
+  margin-top: 8px;
+}
+
+.notes {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.notes li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+
+.notes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.notes li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.notes li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}

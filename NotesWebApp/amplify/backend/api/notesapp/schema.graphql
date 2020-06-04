@@ -1,6 +1,6 @@
-type Note @model {
+type Todo @model {
   id: ID!
-  username: String!
+  user: String!
   name: String!
   note: String
 }

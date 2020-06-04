@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormFieldTypes } from '@aws-amplify/ui-components';
+import { AmplifyService } from 'aws-amplify-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +12,7 @@ export class AuthComponent implements OnInit {
 
   formFields: FormFieldTypes;
 
-  constructor() {
+  constructor(public amplifyService: AmplifyService, public router: Router) {
     this.formFields = [
       {
         type: "email",
@@ -30,6 +32,14 @@ export class AuthComponent implements OnInit {
         required: true,
       }
     ];
+
+    this.amplifyService = amplifyService;
+    this.amplifyService.authStateChange$
+      .subscribe(authState => {
+        if (authState.state === 'signedIn') {
+          this.router.navigate(['/notes']);
+        }
+      });
   }
 
   ngOnInit(): void {
