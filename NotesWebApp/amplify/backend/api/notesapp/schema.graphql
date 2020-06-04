@@ -1,0 +1,6 @@
+type Note @model {
+  id: ID!
+  username: String!
+  name: String!
+  note: String
+}
