@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { NotesComponent } from './notes/notes.component';
 
+import { AmplifyService } from 'aws-amplify-angular';
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +17,10 @@ import { NotesComponent } from './notes/notes.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AmplifyUIAngularModule
   ],
-  providers: [],
+  providers: [AmplifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
