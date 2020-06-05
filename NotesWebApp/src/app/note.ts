@@ -1,8 +1,7 @@
 export class Note {
     constructor(
-        id: string,
-        user: string,
-        name: string,
-        note: string
+        public user: string,
+        public name: string,
+        public note: string
     ) { }
 }

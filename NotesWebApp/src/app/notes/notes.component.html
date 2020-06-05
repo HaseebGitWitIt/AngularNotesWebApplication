@@ -1,17 +1,21 @@
-  <!-- <h1>Welcome to the Notes App {{this.getUser().getName()}}</h1>
+<h1 style="text-align: center;">Welcome to the Notes App</h1>
+<div class="menu_buttons">
+  <button (click)="this.openNewNoteModal()">New Note</button>
+  <button (click)="this.logOut()">Logout</button>
+</div>
+<div *ngIf="this.user.notes.length > 0">
+  <div id="names">
+    <ul class="notes">
+      <li *ngFor="let note of this.user.notes" [class.selected]="note === this.selectedNote"
+        (click)="this.onSelect(note)">
+        {{note.getName()}}
+      </li>
+    </ul>
   </div>
-  <div class="menu_buttons">
-    <button (click)="this.openNewNoteModal()">New Note</button>
+  <div class="noteText">
+    <textarea *ngIf="this.selectedNote" style="width: 900px; height: 500px; font-size: 16px;"></textarea>
   </div>
-  <div *ngIf="this.getUser() && this.getUser().getNotes()">
-    <div id="names">
-      <ul class="notes">
-        <li *ngFor="let note of this.getUser().getNotes()" [class.selected]="note === this.getSelectedNote()"
-          (click)="this.onSelect(note)">
-          {{note.getName()}}
-        </li>
-      </ul>
-    </div>
-    <div class="noteText">
-      <textarea *ngIf="this.getSelectedNote()" style="width: 900px; height: 500px; font-size: 16px;"></textarea>
-    </div> -->
+  <script>
+    alert("Hello world");
+
+  </script>
