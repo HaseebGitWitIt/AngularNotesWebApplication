@@ -1,21 +1,21 @@
-<h1 style="text-align: center;">Welcome to the Notes App</h1>
+<h1 style="text-align: center;">Welcome to the Notes App {{this.username}}</h1>
 <div class="menu_buttons">
   <button (click)="this.openNewNoteModal()">New Note</button>
-  <button (click)="this.logOut()">Logout</button>
+  <button style="float: right;" (click)="this.logOut()">Logout</button>
+  <button *ngIf="this.selectedNote" (click)="this.saveNote()">Save Note</button>
+  <button *ngIf="this.selectedNote" style="font-weight: bolder; color: red;" (click)="this.deleteNote()">Delete
+    Note</button>
 </div>
 <div *ngIf="this.user.notes.length > 0">
   <div id="names">
     <ul class="notes">
       <li *ngFor="let note of this.user.notes" [class.selected]="note === this.selectedNote"
-        (click)="this.onSelect(note)">
-        {{note.getName()}}
+        (click)="this.onSelect(note)" style="text-align: center;">
+        {{note.name}}
       </li>
     </ul>
   </div>
   <div class="noteText">
-    <textarea *ngIf="this.selectedNote" style="width: 900px; height: 500px; font-size: 16px;"></textarea>
+    <textarea *ngIf="this.selectedNote" [(ngModel)]="this.selectedNote.note"
+      style="width: 900px; height: 500px; font-size: 16px;"></textarea>
   </div>
-  <script>
-    alert("Hello world");
-
-  </script>

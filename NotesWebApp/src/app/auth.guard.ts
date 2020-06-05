@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 
@@ -6,7 +6,7 @@ import { Auth } from 'aws-amplify';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) { }
+  constructor(private ngZone: NgZone, private router: Router) { }
 
   canActivate(): Promise<boolean> {
     return new Promise((resolve) => {
@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
           }
         })
         .catch(() => {
-          this.router.navigate(['/login']);
+          this.ngZone.run(() => this.router.navigate(['/login']));
           resolve(false);
         });
     });
