@@ -37,10 +37,12 @@ export class NotesComponent implements OnInit {
 
   public logOut(): void {
     Auth.signOut({ global: true })
-      .then(data => {
-        this.ngZone.run(() => this.router.navigate(['/login']));
+      .then(() => {
+        // this.ngZone.run(() => this.router.navigate(['/login']));
+        window.location.reload();
       })
       .catch(err => console.log(err));
+
   }
 
   public openNewNoteModal(): void {
