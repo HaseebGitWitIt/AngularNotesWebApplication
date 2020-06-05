@@ -38,7 +38,7 @@ export class NotesComponent implements OnInit {
   public logOut(): void {
     Auth.signOut({ global: true })
       .then(data => {
-        this.ngZone.run(() => this.router.navigate(['/auth']));
+        this.ngZone.run(() => this.router.navigate(['/login']));
       })
       .catch(err => console.log(err));
   }

@@ -1,8 +1,6 @@
 {
-    "identityPoolName": "notesapp4a27ecdb_identitypool_4a27ecdb",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "notesa4a27ecdb",
-    "userPoolName": "notesapp4a27ecdb_userpool_4a27ecdb",
+    "resourceNameTruncated": "authReabd2007c",
+    "userPoolName": "notesWebAppUserPool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -12,27 +10,38 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
-    "emailVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Notes App Verification Code",
+    "emailVerificationMessage": "Your verification code is {####}. - HK",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "email",
+        "name"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "email"
+        "email",
+        "name"
     ],
     "userpoolClientReadAttributes": [
+        "email",
+        "name"
+    ],
+    "userpoolClientLambdaRole": "authReabd2007c_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "useDefault": "manual",
+    "authSelections": "userPoolOnly",
+    "resourceName": "authResource",
+    "usernameAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "notesa4a27ecdb_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
-    "sharedId": "4a27ecdb",
-    "resourceName": "notesapp4a27ecdb",
-    "authSelections": "identityPoolAndUserPool",
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [],
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -45,10 +54,9 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "usernameAttributes": [
-        "email"
-    ],
-    "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }
