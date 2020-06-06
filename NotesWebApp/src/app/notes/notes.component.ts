@@ -1,9 +1,12 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { APIService } from '../API.service';
 import { Note } from '../note';
-import { Auth } from 'aws-amplify';
+import { Auth, API } from 'aws-amplify';
 import { Router } from '@angular/router';
 import { User } from '../user';
+
+const API_NAME = "notesAppApi";
+const NOTES_PATH = "/notes";
 
 @Component({
   selector: 'app-notes',
@@ -14,17 +17,33 @@ export class NotesComponent implements OnInit {
 
   user: User;
   selectedNote: Note;
-  username: string;
 
   constructor(private ngZone: NgZone, private api: APIService, private router: Router) {
     Auth.currentAuthenticatedUser({
       bypassCache: false
     }).then(async user => {
-      this.username = user.attributes.name;
       this.user = new User(user.attributes.sub, user.attributes.name, user.attributes.email, []);
+      this.getUserNotes();
     })
       .catch(err => console.log(err));
 
+  }
+
+  private getUserNotes(): void {
+    API
+      .get(API_NAME, NOTES_PATH, {
+        headers: {},
+        response: true,
+        queryParameters: {
+          id: this.user.id
+        }
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
   }
 
   public saveNote(): void {

@@ -3,10 +3,25 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-2",
+    "aws_cognito_identity_pool_id": "us-east-2:7bd8f845-ff94-418b-9f98-06dcf92e3c21",
     "aws_cognito_region": "us-east-2",
     "aws_user_pools_id": "us-east-2_ZITBhXIOJ",
     "aws_user_pools_web_client_id": "7k0nolkhe4smtmcq5sc0b5gc9",
-    "oauth": {}
+    "oauth": {},
+    "aws_cloud_logic_custom": [
+        {
+            "name": "notesAppApi",
+            "endpoint": "https://solyaiy5z2.execute-api.us-east-2.amazonaws.com/dev",
+            "region": "us-east-2"
+        }
+    ],
+    "aws_dynamodb_all_tables_region": "us-east-2",
+    "aws_dynamodb_table_schemas": [
+        {
+            "tableName": "notes-dev",
+            "region": "us-east-2"
+        }
+    ]
 };
 
 

@@ -1,4 +1,6 @@
 {
+    "identityPoolName": "authResource_identitypool_fecbcca0",
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "authReabd2007c",
     "userPoolName": "notesWebAppUserPool",
     "autoVerifiedAttributes": [
@@ -32,7 +34,7 @@
     "userpoolClientLambdaRole": "authReabd2007c_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
     "useDefault": "manual",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "resourceName": "authResource",
     "usernameAttributes": [
         "email"
