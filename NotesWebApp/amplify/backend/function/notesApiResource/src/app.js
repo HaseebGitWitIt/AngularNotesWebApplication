@@ -161,11 +161,30 @@ app.put(path, function (req, res) {
     req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
   }
 
-  let putItemParams = {
+  const params = {
+    userId: req.body['userId'],
     TableName: tableName,
-    Item: req.body
-  }
-  dynamodb.put(putItemParams, (err, data) => {
+    Key: {
+      "id": {
+        "S": req.body.username
+      }
+    },
+    UpdateExpression: "set notes.updateNoteName = :x",
+    ExpressionAttributeNames: {
+      "updateNoteName": req.body.name
+    },
+    ExpressionAttributeValues: {
+      ":x": {
+        "S": req.body.note
+      }
+    }
+  };
+
+  // let putItemParams = {
+  //   TableName: tableName,
+  //   Item: req.body
+  // }
+  dynamodb.update(params, (err, data) => {
     if (err) {
       res.statusCode = 500;
       res.json({

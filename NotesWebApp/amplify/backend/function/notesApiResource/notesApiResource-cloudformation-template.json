@@ -76,7 +76,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-noteswebapp-dev-144716-deployment",
-					"S3Key": "amplify-builds/notesApiResource-536f44654c35716e387a-build.zip"
+					"S3Key": "amplify-builds/notesApiResource-59336a4f564269477951-build.zip"
 				}
 			}
 		},

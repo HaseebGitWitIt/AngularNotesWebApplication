@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { User } from '../user';
 
 const API_NAME = "notesAppApi";
-const NOTES_PATH = "/notes/object";
+const NOTES_PATH = "/notes";
 
 @Component({
   selector: 'app-notes',
@@ -22,7 +22,7 @@ export class NotesComponent implements OnInit {
     Auth.currentAuthenticatedUser({
       bypassCache: false
     }).then(async user => {
-      this.user = new User(user.attributes.sub, user.attributes.name, user.attributes.email, []);
+      this.user = new User(user.username, user.attributes.name, user.attributes.email, []);
       this.getUserNotes();
     })
       .catch(err => console.log(err));
@@ -31,7 +31,7 @@ export class NotesComponent implements OnInit {
 
   private getUserNotes(): void {
     API
-      .get(API_NAME, NOTES_PATH, {
+      .get(API_NAME, NOTES_PATH + "/object", {
         headers: {},
         response: true,
         queryStringParameters: {
@@ -51,7 +51,22 @@ export class NotesComponent implements OnInit {
   }
 
   public saveNote(): void {
-    alert("Needs to be implemented.")
+    const noteName = this.selectedNote.name;
+    const noteNote = this.selectedNote.note;
+    const noteUserId = this.user.id;
+    console.log("userID ----: " + noteUserId)
+    API.post(API_NAME, NOTES_PATH, {
+      body: {
+        "name": noteName,
+        "note": noteNote,
+        "username": noteUserId
+      }, headers: {}
+    }).then(response => {
+      console.log(response);
+    }).catch(error => {
+      console.log(error.response);
+    })
+
   }
 
   public deleteNote(): void {
