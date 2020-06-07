@@ -39,7 +39,11 @@ export class NotesComponent implements OnInit {
         }
       })
       .then(response => {
-        console.log(response);
+        const notes = response.data.notes;
+        for (var note in notes) {
+          var tempNote = new Note(this.user.id, note, notes[note]);
+          this.user.addNote(tempNote);
+        }
       })
       .catch(error => {
         console.log(error.response);
@@ -47,7 +51,7 @@ export class NotesComponent implements OnInit {
   }
 
   public saveNote(): void {
-    alert("Hello world.")
+    alert("Needs to be implemented.")
   }
 
   public deleteNote(): void {
