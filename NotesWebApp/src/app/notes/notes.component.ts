@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { User } from '../user';
 
 const API_NAME = "notesAppApi";
-const NOTES_PATH = "/notes";
+const NOTES_PATH = "/notes/object";
 
 @Component({
   selector: 'app-notes',
@@ -34,7 +34,7 @@ export class NotesComponent implements OnInit {
       .get(API_NAME, NOTES_PATH, {
         headers: {},
         response: true,
-        queryParameters: {
+        queryStringParameters: {
           id: this.user.id
         }
       })
