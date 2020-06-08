@@ -54,15 +54,12 @@ export class NotesComponent implements OnInit {
     const noteName = this.selectedNote.name;
     const noteNote = this.selectedNote.note;
     const noteUserId = this.user.id;
-    console.log("userID ----: " + noteUserId)
-    API.post(API_NAME, NOTES_PATH, {
+    API.put(API_NAME, NOTES_PATH, {
       body: {
         "name": noteName,
         "note": noteNote,
         "username": noteUserId
       }, headers: {}
-    }).then(response => {
-      console.log(response);
     }).catch(error => {
       console.log(error.response);
     })
@@ -70,7 +67,22 @@ export class NotesComponent implements OnInit {
   }
 
   public deleteNote(): void {
-    alert("Needs to be implemented.")
+    const noteUserId = this.user.id;
+    const noteName = this.selectedNote.name;
+    API.del(API_NAME, NOTES_PATH + "/object", {
+      body: {
+        "username": noteUserId,
+        "name": noteName
+      }, headers: {}
+    }).then(response => {
+      if (response.success) {
+        this.user.removeNote(noteName);
+        this.selectedNote = null;
+      }
+    }).catch(error => {
+      alert("Error, something went wrong.")
+      console.log(error.response);
+    })
   }
 
   public logOut(): void {
